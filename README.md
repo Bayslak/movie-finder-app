@@ -30,6 +30,10 @@ This application allows users to:
 - Loading states and error handling
 - Responsive design
 
+## Warning
+
+To run this project after cloning it, remember to create a `.env.local` file in the root directory and add inside the `VITE_TDMB_API_KEY=your_api_key_here`
+
 ## Acknowledgments
 
 Thanks to [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) for the excellent tutorial that made this learning experience possible!
