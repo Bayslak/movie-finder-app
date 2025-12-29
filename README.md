@@ -1,16 +1,35 @@
-# React + Vite
+# Movie Finder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My first React application! 🎬
 
-Currently, two official plugins are available:
+## About This Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was created by following the [JavaScript Mastery React Course](https://www.youtube.com/watch?v=dCLhUialKPQ). It's a movie search application that helped me learn the fundamentals of React development.
 
-## React Compiler
+## What It Does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This application allows users to:
 
-## Expanding the ESLint configuration
+- **Browse Popular Movies**: On initial load, the app displays a list of popular movies sorted by popularity
+- **Search for Movies**: Users can search for specific movies using the search functionality
+- **View Movie Details**: Each movie is displayed with its poster, title, and other relevant information
+- **Real-time Updates**: The movie list updates automatically as you type in the search bar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+- **React**: Frontend framework with hooks (useState, useEffect)
+- **The Movie Database (TMDb) API**: Provides movie data and posters
+- **Vite**: Fast build tool and development server
+- **Tailwind CSS**: Utility-first CSS framework for styling
+
+## Key Features Implemented
+
+- Component-based architecture (Search, MovieCard, Spinner components)
+- API integration with TMDb
+- State management using React hooks
+- Loading states and error handling
+- Responsive design
+
+## Acknowledgments
+
+Thanks to [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) for the excellent tutorial that made this learning experience possible!
