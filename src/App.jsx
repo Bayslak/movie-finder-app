@@ -20,13 +20,16 @@ function App() {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
 
-    const fetchMovies = async () => {
+    const fetchMovies = async (query = '') => {
 
         setIsLoading(true);
         setErrorMessage('');
 
         try {
-            const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+            const endpoint = query
+                ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+                : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+
             const response = await fetch(endpoint, API_OPTIONS);
 
             if(!response.ok) {
@@ -50,46 +53,10 @@ function App() {
             setIsLoading(false);
         }
     }
-    const searchMovies = async () => {
-        setIsLoading(true);
-        setErrorMessage('');
-
-        try {
-            const endpoint = `${API_BASE_URL}/search/movie?query=${searchTerm}`;
-            const response = await fetch(endpoint, API_OPTIONS);
-
-            if(!response.ok) {
-                throw new Error(response.statusText);
-            }
-
-            const movies = await response.json();
-
-            if(movies.Response === 'False') {
-                setErrorMessage(movies.Error || `Failed to fetch movies`);
-                setMovies([]);
-                return;
-            }
-
-            setMovies(movies.results || []);
-        } catch (error) {
-            console.error(`Error searching movies: ${error}`);
-            setErrorMessage(`Error searching movies, please try again later.`);
-        } finally {
-            setIsLoading(false);
-        }
-    }
 
     useEffect(() => {
-        fetchMovies();
-    }, []) //Empty brackets means only run it when it loads the component
-
-    useEffect(() => {
-        if (searchTerm) {
-            searchMovies();
-            return;
-        }
-        fetchMovies();
-    }, [searchTerm]);
+        fetchMovies(searchTerm);
+    }, [searchTerm]) //Empty brackets means only run it when it loads the component
 
     return (
         <main>
